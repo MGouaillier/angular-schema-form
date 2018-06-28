@@ -1,6 +1,11 @@
 <div class="form-group has-feedback {{form.htmlClass}} schema-form-textarea" ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true &&  hasSuccess()}">
-  <label class="{{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
-
+    <div class="label-container">
+        <label class="{{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle()}" for="{{form.key.slice(-1)[0]}}">{{form.title}}</label>
+        <div class="schema-form-tooltip">
+            <vue-component ng-if="form.tooltip" name="FcInfoIcon" vprops-info="form.tooltip"/>
+        </div>
+    </div>
+    
   <textarea ng-if="!form.fieldAddonLeft && !form.fieldAddonRight"
             class="form-control {{form.fieldHtmlClass}}"
             id="{{form.key.slice(-1)[0]}}"
