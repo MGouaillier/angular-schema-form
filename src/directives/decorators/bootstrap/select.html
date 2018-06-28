@@ -1,8 +1,12 @@
 <div class="form-group {{form.htmlClass}} schema-form-select"
      ng-class="{'has-error': form.disableErrorState !== true && hasError(), 'has-success': form.disableSuccessState !== true && hasSuccess(), 'has-feedback': form.feedback !== false}">
-  <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">
-    {{form.title}}
-  </label>
+  <div class="label-container">
+    <label class="control-label {{form.labelHtmlClass}}" ng-show="showTitle()">{{form.title}}</label>
+    <div class="schema-form-tooltip">
+        <vue-component ng-if="form.tooltip" name="FcInfoIcon" vprops-info="form.tooltip"/>
+    </div>
+  </div>
+  
   <select ng-model="$$value$$"
           ng-model-options="form.ngModelOptions"
           ng-disabled="form.readonly"
